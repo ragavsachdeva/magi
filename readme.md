@@ -41,3 +41,15 @@ for i in range(len(images)):
     model.visualise_single_image_prediction(images[i], results[i], filename=f"image_{i}.png")
     model.generate_transcript_for_single_image(results[i], ocr_results[i], filename=f"transcript_{i}.txt")
 ```
+
+### Citation
+```
+@misc{sachdeva2024manga,
+      title={The Manga Whisperer: Automatically Generating Transcriptions for Comics}, 
+      author={Ragav Sachdeva and Andrew Zisserman},
+      year={2024},
+      eprint={2401.10224},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
