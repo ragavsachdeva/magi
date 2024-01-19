@@ -6,6 +6,7 @@
 
 ### TLDR
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magi).
+- Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/the-manga-whisperer/).
 - Dataset is coming soon.
 - Basic model usage is provided below, more details to follow.
 
