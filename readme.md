@@ -1,4 +1,6 @@
-# [The Manga Whisperer: Automatically Generating Transcriptions for Comics](#)
+# [The Manga Whisperer: Automatically Generating Transcriptions for Comics](http://arxiv.org/abs/2401.10224)
+
+[[arXiv]](http://arxiv.org/abs/2401.10224)
 
 [Ragav Sachdeva](https://ragavsachdeva.github.io/), [Andrew Zisserman](https://scholar.google.com/citations?hl=en&user=UZ5wscMAAAAJ)
 
