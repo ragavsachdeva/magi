@@ -45,7 +45,9 @@ for i in range(len(images)):
     model.generate_transcript_for_single_image(results[i], ocr_results[i], filename=f"transcript_{i}.txt")
 ```
 
-### Citation
+### License and Citation
+The provided model and datasets are available for unrestricted use in personal, research, non-commercial, and not-for-profit endeavors. For any other usage scenarios, kindly contact me via email, providing a detailed description of your requirements, to establish a tailored licensing arrangement. My contact information can be found on [my website](https://ragavsachdeva.github.io/).
+
 ```
 @misc{sachdeva2024manga,
       title={The Manga Whisperer: Automatically Generating Transcriptions for Comics}, 
