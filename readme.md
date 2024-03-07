@@ -1,4 +1,4 @@
-# [The Manga Whisperer: Automatically Generating Transcriptions for Comics](http://arxiv.org/abs/2401.10224)
+# [The Manga Whisperer: Automatically Generating Transcriptions for Comics (CVPR'24)](http://arxiv.org/abs/2401.10224)
 
 [![Static Badge](https://img.shields.io/badge/arXiv-2401.10224-blue)](http://arxiv.org/abs/2401.10224)
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagi%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magi)
