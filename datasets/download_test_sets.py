@@ -61,7 +61,6 @@ def download_test_set(
     print("Downloading images from MangaPlus. Temporarily stored in ./mloader_downloads.")
     for link in manga_plus_links:
         os.system(f"mloader {link} --raw --chapter-subdir")
-        break
     
     os.system("mv mloader_downloads popmanga_test")
     
