@@ -5,6 +5,12 @@
 
 [Ragav Sachdeva](https://ragavsachdeva.github.io/), [Andrew Zisserman](https://scholar.google.com/citations?hl=en&user=UZ5wscMAAAAJ)
 
+TODOs (by first week of Aug 2024): 
+- [ ] Upload Magiv2 model,
+- [ ] provide new annotations,
+- [ ] open-source PopCharacters dataset,
+- [ ] release evaluation scripts.
+
 ### TLDR
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magi).
 - Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/the-manga-whisperer/) (no GPU, so slow).
