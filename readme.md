@@ -55,7 +55,7 @@ for i in range(len(images)):
 
 ## Magiv2
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magiv2).
-- Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo).
+- Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo) (with GPU, thanks HF Team!).
 - Basic model usage is provided below. Inspect [this file](https://huggingface.co/ragavsachdeva/magiv2/blob/main/modelling_magiv2.py) for more info.
 
 ![magiv2](https://github.com/user-attachments/assets/e0cd1787-4a0c-49a5-a9d8-be2911d5ec08)
@@ -116,7 +116,8 @@ The provided models and datasets are available for unrestricted use in personal,
     year      = {2024},
     pages     = {12967-12976}
 }
-
+```
+```
 @misc{magiv2,
       title={Tails Tell Tales: Chapter-Wide Manga Transcriptions with Character Names}, 
       author={Ragav Sachdeva and Gyungin Shin and Andrew Zisserman},
