@@ -1,12 +1,14 @@
 # Magi, The Manga Whisperer
 
-![Static Badge](https://img.shields.io/badge/V1-blue) 
+![Static Badge](https://img.shields.io/badge/v1-grey) 
 [![Static Badge](https://img.shields.io/badge/arXiv-2401.10224-blue)](http://arxiv.org/abs/2401.10224)
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagi%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magi)
+[![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Demo-blue)](https://huggingface.co/spaces/ragavsachdeva/the-manga-whisperer/)
 
-![Static Badge](https://img.shields.io/badge/V2-blue) 
+![Static Badge](https://img.shields.io/badge/v2-grey) 
 [![Static Badge](https://img.shields.io/badge/arXiv-2408.00298-blue)](https://arxiv.org/abs/2408.00298)
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagiv2%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magiv2)
+[![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Demo-blue)](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo)
 
 TODOs: 
 - [x] Upload Magiv2 model,
@@ -21,7 +23,7 @@ TODOs:
 
 ![Magi_teaser](https://github.com/ragavsachdeva/magi/assets/26804893/0a6d44bc-12ef-4545-ab9b-577c77bdfd8a)
 
-### V1 Usage
+### v1 Usage
 ```python
 from transformers import AutoModel
 import numpy as np
@@ -60,7 +62,7 @@ for i in range(len(images)):
 
 ![magiv2](https://github.com/user-attachments/assets/e0cd1787-4a0c-49a5-a9d8-be2911d5ec08)
 
-### V2 Usage
+### v2 Usage
 ```python
 from PIL import Image
 import numpy as np
