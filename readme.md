@@ -120,7 +120,7 @@ Disclaimer: In adherence to copyright regulations, we are unable to _publicly_ d
 
 
 ### License and Citation
-The provided models and datasets are available for unrestricted use in personal, research, non-commercial, and not-for-profit endeavors. For any other usage scenarios, kindly contact me via email, providing a detailed description of your requirements, to establish a tailored licensing arrangement. My contact information can be found on [my website](https://ragavsachdeva.github.io/).
+The provided models and datasets are available for academic research purposes only.
 
 ```
 @InProceedings{magiv1,
