@@ -12,7 +12,7 @@
 
 TODOs: 
 - [x] Upload Magiv2 model,
-- [ ] provide new annotations,
+- [x] provide new annotations,
 - [ ] open-source PopCharacters dataset,
 - [ ] release evaluation scripts.
 
@@ -121,8 +121,8 @@ The provided models and datasets are available for unrestricted use in personal,
 ```
 ```
 @misc{magiv2,
-      title={Tails Tell Tales: Chapter-Wide Manga Transcriptions with Character Names}, 
       author={Ragav Sachdeva and Gyungin Shin and Andrew Zisserman},
+      title={Tails Tell Tales: Chapter-Wide Manga Transcriptions with Character Names}, 
       year={2024},
       eprint={2408.00298},
       archivePrefix={arXiv},
