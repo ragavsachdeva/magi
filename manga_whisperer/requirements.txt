@@ -1,0 +1,10 @@
+transformers
+einops
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch
+shapely
+timm
+scipy
+tokenizers
+pulp
+numpy==1.26.4
