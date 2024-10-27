@@ -62,6 +62,7 @@ multiprocess==0.70.16
 nest-asyncio==1.6.0
 networkx==3.2.1
 numpy==2.0.1
+opencv-python==4.10.0.84
 packaging==24.1
 pandas==2.2.3
 parso==0.8.4
