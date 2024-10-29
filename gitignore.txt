@@ -1,4 +1,4 @@
-data_test/code/test_lab/panel_images_full_chapter/
+./data_test/code/test_lab/panel_images_full_chapter/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
