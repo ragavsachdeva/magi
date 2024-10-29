@@ -1,3 +1,4 @@
+---------------------------------------------
 <Other>: Eh...?
 <Other>: All of a sudden
 <ruri>: I grew horns
@@ -13,8 +14,8 @@
 <mom>: Since your Dad
 <mom>: Is a Dragon
 <mom>: According to your Dad, your body will start to change when you're 15.
-<ruri>: I didn't expect the horns to grow overnight though.
-<ruri>: Anyways, eat your breakfast.
+<mom>: I didn't expect the horns to grow overnight though.
+<mom>: Anyways, eat your breakfast.
 ---------------------------------------------
 <ruri>: WHAT:...
 <Other>: What is this "Dragon" about?
@@ -27,9 +28,9 @@
 ---------------------------------------------
 <ruri>: You have the blood of a dragon
 <ruri>: Since you're a child of a human and a dragon.
-<ruri>: You're kidding me, aren't you?
+<ruri>: YOU'RE KIDDING ME, ARENT YOU?
 <ruri>: If I was kidding, then how come you have those horns on your head?
-<ruri>: eh...
+<ruri>: Eh...
 <ruri>: I'm going out for work now.
 <ruri>: How about you? Are you going to school?
 ---------------------------------------------
@@ -161,4 +162,280 @@
 <Other>: Hey, are you ok?
 <ruri>: Ah!
 <ruri>: Hello, Mom?
+---------------------------------------------
+<mom>: Mom! What happened to my body?
+<mom>: You didn't tell me that I would spit fire when I sneezed!
+<mom>: Ah... is that so...
+<mom>: Now is not the time for that!
+<mom>: Why didn't you even explain what was going on with my body?
+<mom>: I just made a heck of a mess, you know?
+<mom>: Hey, what's wrong with your voice?
+<mom>: My throat was burnt!!
+<mom>: I spit fire and what's stranger is that I just threw up blood!!
+<mom>: Haha, you sure are a half- dragon.
+<mom>: How are you now?
+<mom>: Now?
+---------------------------------------------
+<ruri>: I'm stopping the blee- ding in the infirmary.
+<ruri>: Hey...
+<ruri>: Can you tell me everything you know about dragons?
+<ukka>: Please be quiet...
+<ruri>: It will be really troublesome for me if this happens again...
+<ruri>: About that...
+<ruri>: I don't know much about it, either.
+<ruri>: What?
+<ruri>: I would have told you had I known.
+<ruri>: By the way, no sneezing for the rest of the day.
+<ruri>: Don't be absurd!
+<unsure>: Well then, back to work now.
+<ruri>: Ah!!
+---------------------------------------------
+<ruri>: Hey Sensei, teach me how to stop my sneezing!
+<ruri>: Eh...
+<mom>: I'm home!
+<mom>: Ruri?
+---------------------------------------------
+<ruri>: Uwah, what's wrong?
+<ruri>: Oh, welcome home.
+<ruri>: Why the face? What's wrong?
+<ruri>: I spit fire three times after that and got burned.
+<ruri>: hat xi!
+<ruri>: Are you ok?
+<ruri>: Ah... mou... I really shouldn't have gone to school if this was going to happen.
+<ruri>: Yep, I didn't expect you to go to school either.
+<ruri>: Take a day off tomorrow.
+<ruri>: Eh...?
+---------------------------------------------
+<mom>: Do you want to see your dad?
+<mom>: ::?
+<mom>: Uwah, what is this...
+---------------------------------------------
+<ruri>: Chinese dragons are no jokes.
+<ruri>: deer,
+<ruri>: Hawk.
+<ruri>: snake,
+<mom>: Carp,
+<ruri>: What is this 'when'**?
+<Other>: com,
+<unsure>: You'll get sick.
+<Other>: tiger,
+<Other>: Rabbit,
+<Other>: CAMEL?!
+<ruri>: So... what creature am I?
+<mom>: I said I don't know.
+<mom>: I'm going to sleep now, don't wake me up.
+<mom>: This woman...
+<ruri>: Mom, what's going on with my body?
+<ruri>: Can I fly as well?
+<ruri>: Last night
+<mom>: Ahaha! You read too many Mangas!
+<ruri>: but i spit fire.
+---------------------------------------------
+<ruri>: Don't ask me about it.
+<ruri>: Save it for your Dad.
+<ruri>: So...
+<ukka>: She told me to figure all these out myself.
+<ukka>: HAH
+<ukka>: HAH
+<ukka>: Why am I here so deep in the mourn- tains...
+<ukka>: HAH
+<Other>: Mom!
+<ruri>: Why now?
+<ruri>: AH...?
+---------------------------------------------
+<ruri>: both meeting Dad, and the whole "dragon" situation.
+<ruri>: Why did you keep all those things to yourself?
+<ruri>: Why didn't you tell me before all these happened?
+<ruri>: Would you have believed me if I had done so?
+<ruri>: ... maybe not.
+<ruri>: There are things...
+<ruri>: that you need to figure out yourself instead of asking.
+<ruri>: Eh...
+<ruri>: Seri- Ously, this woman.
+---------------------------------------------
+<Other>: What are you up to this time?
+<Other>: If mom keeps playing house like that...
+<Other>: This smart daughter of yours won't be so happy.
+<ruri>: Ah... no good.
+<ruri>: I have to take a break here.
+<ruri>: Eh...
+<ruri>: Go straight ahead and you will see an old shrine.
+<ruri>: Go by yourself.
+<ruri>: Ehh...
+<ruri>: It's in the shrine, right?
+<ruri>: Yep.
+---------------------------------------------
+<ruri>: CRAP: I'm so tired to go back now...
+<ruri>: AND IT'S TOO FAR...
+<ruri>: HAH
+<ruri>: Finally made it...
+<ruri>: This place...
+<ruri>: Does seem really old.
+<ruri>: No one probably manages it anymore.
+<ruri>: !!
+---------------------------------------------
+<Other>: H!!!...
+<ruri>: AH... Um...
+---------------------------------------------
+<Other>: Hmmm:?! Ruri?!
+<unsure>: :!?
+<ruri>: Sorry, I didn't realize it was you.
+<ruri>: :?
+<Other>: I'm terribly sorry for scaring you...
+<Other>: It's been over 10 years since I last saw a human.
+---------------------------------------------
+<Other>: But you finally came...
+<Other>: Time sure flies, I remember you were still so little back then...
+<ruri>: He sure is Tal- Kative.
+<ruri>: He's H-Huge, but I can talk to him fortunately.
+<ruri>: UMM...
+<ruri>: I have something to ask.
+<ruri>: Hmm...
+<Other>: Let's head inside first.
+<unsure>: You must be tired.
+---------------------------------------------
+<ruri>: How's UMI now?
+<ruri>: Yes?
+<ruri>: Ah! Mom!
+<unsure>: She's resting down there
+<unsure>: And told me to get here myself.
+<unsure>: Haha!
+<unsure>: She's still as lazy as ever
+<unsure>: But I'm relieved to hear that.
+<ruri>: This person... no, this dragon is really...
+<ruri>: My dad?
+<ruri>: So,
+<ruri>: What did you want to ask?
+<Other>: I will answer all of your Ques- Tions.
+<ruri>: !!
+<Other>: Yes...
+<Other>: You see...
+---------------------------------------------
+<ruri>: The first time I was in the middle of the
+<ruri>: How exactly did you two create me?
+<Other>: You came here just to ask me that!?
+<Other>: A-AH!
+<ruri>: Well, I'm curious.
+<Other>: Do you have any other Ques- Tions?
+<Other>: such as...
+<Other>: Mom suddenly told me that I was a dragon.
+<ruri>: Then I came all the way here knowing nothing.
+<ruri>: How exactly was I born?
+<ruri>: If you don't tell me, I will be really sad, you know...
+<Other>: Uh...
+---------------------------------------------
+<Other>: Ask your mom.
+<ruri>: PFFETT... AHAHA!!
+<ruri>: W-WHAT ARE YOU LAUG- HING ABOUT?
+<ruri>: Sorry, I was just joking.
+<ruri>: I just wanted to ask.
+<Other>: Are you teas- ing me?
+<ruri>: I see.
+<ruri>: Though my dad looks like this.
+<Other>: This is how it feels to have a dad by your side.
+---------------------------------------------
+<ruri>: Dad,
+<ruri>: Tell me something about dragons.
+<ruri>: I came all this way, you know...
+<ruri>: Heh... then,
+<ruri>: Did you first meet Mom here?
+<unsure>: That's right.
+<ruri>: Well, this is my shrine after all.
+<ruri>: Ah, Dad
+<ruri>: In that case...
+<ruri>: Can dragons fly?
+<ruri>: Despite having no wings...
+<ruri>: No, I do have wings.
+<ruri>: Hah?
+---------------------------------------------
+<Other>: Do you want to fly with me?
+<ruri>: Yes?
+<ruri>: UWA!!!!
+<ruri>: Why-
+<ruri>: Where did they come from, Dad?!
+<ruri>: Concea-ling our wings
+<ruri>: is also the way of the dragon.
+---------------------------------------------
+<Other>: To be honest,
+<Other>: I have always wanted to carry you
+<ruri>: on my back and fly to the sky.
+<ruri>: Eh...?
+<ruri>: W-Wait UHM....
+<ruri>: Hold on tight!
+<ruri>: Dad, I haven't ...
+<ruri>: said "Yes" yet!
+<ruri>: Dad, it's fast, too fast!
+<ruri>: I'm gonna die!!!
+---------------------------------------------
+<Other>: For more information on
+<Other>: AHaha Haha!!!
+<Other>: This is awesome!
+<Other>: My ears are buzzing!
+<Other>: Pro- Baby Air Pressure
+---------------------------------------------
+<ruri>: AHH... SO TIRED.
+<ruri>: How long is this going to take?
+<ruri>: I DON'T WANT TO GO BACK AT ALL...!
+<ruri>: Ah
+<ruri>: Mom's here.
+<ruri>: Don't you two get along.
+<Other>: Yo, are you doing good?
+<ruri>: Hah...
+<ruri>: Hah...
+<ruri>: Hah...
+<Other>: You look like you are dying, umi.
+<ruri>: Live somewhere lower, Baka.
+<ruri>: Anyways, how are you two? Did something happen?
+<ruri>: Ah... we just flew in the sky.
+---------------------------------------------
+<mom>: Eh... you can fly?
+<ruri>: Not until last year.
+<unsure>: Want me to show you?
+<mom>: Ohhh, is this the infamous "Lover's quarrel" I've heard of before?
+<unsure>: What?!
+<ruri>: I see...
+<ruri>: Now I know, who my real father is,
+<ruri>: And the origin of my horns. I finally get to know.
+<Other>: alrighty.
+<mom>: It's rare for us to get together like this, so let's take a picture together, shall we?
+<mom>: Ha?
+---------------------------------------------
+<ruri>: Come on, this is the first time we actually got together.
+<ruri>: C'mere, honey.
+<ruri>: Well...
+<ruri>: Gu...I guess so.
+<ruri>: What do you think? Since you already talked to your dad.
+<ruri>: Doesn't he seem more like a human than a monster?
+<ruri>: What?
+<ruri>: Ah, to be honest,
+<ruri>: He doesn't smell one bit like a monster.
+<ruri>: I wonder.
+<ruri>: Well, interesting creatures are everywhere.
+---------------------------------------------
+<ruri>: If I have to compare, then...
+<ruri>: You still look more like a human.
+<ruri>: So don't worry.
+<ruri>: OK, we have 10 seconds.
+<Other>: Didn't you tell me that I wasn't a human?
+<ruri>: I don't remember~
+<ruri>: To be honest,
+<ruri>: Even if I'm not a human,
+<ruri>: It's not the end of the world, but...
+<ruri>: Ah,
+<ruri>: Sorry.
+<ruri>: ?.
+---------------------------------------------
+<unsure>: I messed up the camera's angle.
+<unsure>: WRONG ONE!
+<ruri>: It's OK, give it to me.
+<ruri>: I will take the photo.
+---------------------------------------------
+<ruri>: One week later
+<ruri>: Um...
+<ruri>: Hm... What?
+<ruri>: Something just grew...?
+<ruri>: Even if surprises may come, be glad and accept it.
+---------------------------------------------
+<ruri>: Raws: Shiro Pantsu (FB) Translator: Nam, Vertic Proofreader: Nam, Vertic Cleaner/Redrawer: Vertic TypesBetter: Vertic Quality Checker: Vertic
+<ruri>: This is awesome!
 ---------------------------------------------
