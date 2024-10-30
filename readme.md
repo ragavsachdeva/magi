@@ -53,16 +53,21 @@ This repository contains a set of Python scripts designed to transform raw manga
 Image Demo
 ----------
 
+![page_002_panel_000_bubble_000](https://github.com/user-attachments/assets/94ca1f19-74f9-4339-8325-b5caf5e63c55)
+![page_002_panel_000_bubble_001](https://github.com/user-attachments/assets/8c2132b2-2972-46b3-ae35-c350fac6f079)
 
 
 Video Demo
 ----------
 
+## Full-Page View Demo
+
+https://github.com/user-attachments/assets/db32e3c1-f95d-49e2-a7da-c626d25d68af
+
+
 ## Panel View Demo
 
-[![Video Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://YOUR_GITHUB_URL_TO_VIDEO)
-
-Replace `YOUR_VIDEO_ID` with the actual ID of your video on YouTube or wherever it's hosted.
+https://github.com/user-attachments/assets/2bea36bc-57e8-48d6-aa76-1ed5e8eb740a
 
 Contribution
 ------------
