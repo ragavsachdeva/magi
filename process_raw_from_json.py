@@ -67,7 +67,7 @@ def process_full_page(images_dir: str, json_file_path: str, save_path: str = "./
             modified_image_path = modified_panel_image_path.format(image_name, 0, text_order, image_extension)
 
             # Instead of saving here, save it once at the end
-            img.save(modified_image_path)
+            img.save(modified_image_path, format='JPEG')
 
     print(f"Processed and saved modified full page images for: {image_name_ext}")
 
@@ -100,7 +100,7 @@ def process_panel_view(images_dir: str, json_file_path: str, save_path: str = ".
             text_order = total_length_text
 
             # Save the modified panel image with the last computed bubble index
-            panel_image.save(modified_panel_image_path.format(image_name, panel_index, text_order, image_extension))
+            panel_image.save(modified_panel_image_path.format(image_name, panel_index, text_order, '.jpg'))
             
             # Loop through each set of coordinates in reverse order
             for box_index, box in enumerate(reversed(text_coords)):
@@ -142,10 +142,10 @@ def process_panel_view(images_dir: str, json_file_path: str, save_path: str = ".
 
                     # Save modified image path for the current chat bubble
                     text_order = total_length_text - (box_index + 1)
-                    modified_image_path = modified_panel_image_path.format(image_name, panel_index, text_order, image_extension)
+                    modified_image_path = modified_panel_image_path.format(image_name, panel_index, text_order, '.jpg')
 
                     # Instead of saving here, save it once at the end
-                    panel_image.save(modified_image_path)
+                    panel_image.save(modified_image_path, format='JPEG')
 
     print(f"Processed and saved modified panel view images for: {image_name_ext}")
 
