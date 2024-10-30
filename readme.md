@@ -53,8 +53,12 @@ This repository contains a set of Python scripts designed to transform raw manga
 Image Demo
 ----------
 
-![page_002_panel_000_bubble_000](https://github.com/user-attachments/assets/94ca1f19-74f9-4339-8325-b5caf5e63c55)
-![page_002_panel_000_bubble_001](https://github.com/user-attachments/assets/8c2132b2-2972-46b3-ae35-c350fac6f079)
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/94ca1f19-74f9-4339-8325-b5caf5e63c55" alt="page_002_panel_000_bubble_000" style="width: 30%;"/>
+    <img src="https://github.com/user-attachments/assets/8c2132b2-2972-46b3-ae35-c350fac6f079" alt="page_002_panel_000_bubble_001" style="width: 30%;"/>
+    <img src="https://github.com/user-attachments/assets/b841dfbe-bf93-4258-9a14-09d9d7bd366c" alt="page_002_panel_000_bubble_002" style="width: 30%;"/>
+</div>
+
 
 
 Video Demo
@@ -62,12 +66,13 @@ Video Demo
 
 ## Full-Page View Demo
 
-https://github.com/user-attachments/assets/db32e3c1-f95d-49e2-a7da-c626d25d68af
+[https://github.com/user-attachments/assets/db32e3c1-f95d-49e2-a7da-c626d25d68af](https://github.com/user-attachments/assets/95eeae7f-2c71-4ba4-9d03-95d56433fe14)
 
 
 ## Panel View Demo
 
-https://github.com/user-attachments/assets/2bea36bc-57e8-48d6-aa76-1ed5e8eb740a
+https://github.com/user-attachments/assets/0aabe36d-1422-4318-a076-b0d614e9da7c
+
 
 Contribution
 ------------
