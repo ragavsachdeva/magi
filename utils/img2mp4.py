@@ -10,18 +10,15 @@ def convert_to_video_name_format(name_format: str) -> str:
     # Replace anything between { and } with {}
     return re.sub(r'\{[^}]*\}', '{}', name_format)
 
-def create_video_from_images(image_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, duration_per_image: float = 0.5, reverse_order: bool = False, compressed: bool = False, delete_original: bool = True):
+def create_video_from_images(image_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, duration_per_image: float = 0.5, compressed: bool = False, delete_original: bool = True):
 
     video_name_format = convert_to_video_name_format(name_format)
 
     output_video_name = os.path.join(output_video_path, f'video_Padding_{use_padding}.mp4')
 
     output_video_compressed = os.path.join(output_video_path, f'video_Padding_{use_padding}_compressed.mp4')
-    # Calculate the total frames for each image based on desired display duration
-    frames_per_image = int(fps * duration_per_image)
 
-    # Get all the modified images sorted in reverse order using the provided video_name_format
-    image_files = sorted(glob(os.path.join(image_dir, video_name_format.format('*', '*', '*', '*'))), reverse=reverse_order)
+    image_files = sorted(glob(os.path.join(image_dir, video_name_format.format('*', '*', '*', '*'))))
 
     # Check if there are any image files
     if not image_files:
@@ -45,6 +42,11 @@ def create_video_from_images(image_dir: str, output_video_path: str, name_format
     # Loop through the images and write them to the video
     for image_file in image_files:
         img = cv2.imread(image_file)
+
+        # Calculate the total frames for each image based on desired display duration
+
+        # duration_per_image = audio_durations[index] if audio_durations and index < len(audio_durations) else 0.5
+        frames_per_image = int(fps * duration_per_image)
 
         # Create a black background image with max dimensions if padding is needed
         if use_padding:
