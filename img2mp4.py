@@ -87,9 +87,9 @@ def create_video_from_images(image_dir: str, output_video_path: str, name_format
     print(f"Video saved as: {output_video_name}")
 
 # Example usage
-image_dir = "./data_test/code/test_lab/panel_images_full_chapter"
-# image_dir = "./panel_images"
-# image_dir = "./full_image"
+# image_dir = "./data_test/code/test_lab/panel_images_full_chapter"
+image_dir = "./data_test/code/test_lab/panel_images"
+# image_dir = "./data_test/code/test_lab/full_image"
 name_format = "page_{:03}_panel_{:03}_bubble_{:03}{}"
 
 # Create video with padding
