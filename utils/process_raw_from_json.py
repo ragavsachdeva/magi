@@ -165,9 +165,9 @@ def process_panel_view(images_dir: str, json_file_path: str, save_path: str = ".
 
 def process_all_images_and_jsons(images_folder: str, json_folder: str, save_path: str = "./panel_images", name_format: str = "page_{:03}_panel_{:03}_bubble_{:03}{}", nuke: bool = False, panel_view: bool = False):
     
+    image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff'}
     if nuke:
         try:
-            image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff'}
 
             for filename in os.listdir(save_path):
                 # Check if the file has an image extension
@@ -179,10 +179,10 @@ def process_all_images_and_jsons(images_folder: str, json_folder: str, save_path
             print(f"Error: {e}")
 
     # Get all image and json file names
-    image_files = [f for f in os.listdir(images_folder) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
+    image_files = [f for f in os.listdir(images_folder) if os.path.splitext(f)[1].lower() in image_extensions]
     json_files = [f for f in os.listdir(json_folder) if f.lower().endswith('.json')]
     if len(image_files) != len(json_files):
-        print("Number of images and json files do not match!")
+        print(f"Number of images and json files do not match! Length of images: {len(image_files)}, Length of jsons: {len(json_files)}")
     else:
         for image_file in image_files:
             # Construct full image path
