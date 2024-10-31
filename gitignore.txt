@@ -6,6 +6,7 @@ data_test/code/test_lab/panel_images_full_chapter
 # Byte-compiled / optimized / DLL files
 __pycache__/
 */__pycache__/
+utils/__pycache__/
 *.py[cod]
 *$py.class
 
