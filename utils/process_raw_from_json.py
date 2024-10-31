@@ -79,7 +79,7 @@ def process_full_page(images_dir: str, json_file_path: str, save_path: str = "./
             # Instead of saving here, save it once at the end
             img.save(modified_image_path, format='JPEG')
 
-    print(f"Processed and saved modified full page images for: {image_name_ext}")
+    print(f"Processed and saved modified full page images for: {image_name_ext} using json file: {json_file_path}")
 
 def process_panel_view(images_dir: str, json_file_path: str, save_path: str = "./panel_images", name_format: str = "page_{:03}_panel_{:03}_bubble_{:03}{}"):
     os.makedirs(save_path, exist_ok=True)
@@ -180,7 +180,7 @@ def process_all_images_and_jsons(images_folder: str, json_folder: str, save_path
     # Get all image and json file names
     image_files = [f for f in sorted_image_files if os.path.splitext(f)[1].lower() in image_extensions]
     json_files = [f for f in sorted_json_files if f.lower().endswith('.json')]
-    
+
     if len(image_files) != len(json_files):
         print(f"Number of images and json files do not match! Length of images: {len(image_files)}, Length of jsons: {len(json_files)}")
     else:

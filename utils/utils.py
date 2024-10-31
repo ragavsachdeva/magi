@@ -9,7 +9,9 @@ def rename_image_to_correct_format(images_folder, new_folder, num_digits: int =3
 
     os.makedirs(new_folder, exist_ok=True)
 
-    for idx, image_path in enumerate(os.listdir(images_folder)):
+    sorted_images = sort_files(images_folder)
+
+    for idx, image_path in enumerate(sorted_images):
         original_path = os.path.join(images_folder, image_path)
         if os.path.isfile(original_path):  # Ensure it's a file
             original_ext = os.path.splitext(image_path)[1]
