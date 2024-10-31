@@ -1,4 +1,6 @@
 data_test/code/test_lab/panel_images_full_chapter
+*.mp4
+*.mov
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
