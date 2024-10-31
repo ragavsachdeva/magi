@@ -1,7 +1,7 @@
 import os
 from utils.img2mp4 import create_video_from_images
 from utils.process_raw_from_json import process_all_images_and_jsons, get_digit_number_for_name_format, generate_name_format
-from utils.change_image_name import rename_image_to_correct_format
+from utils.utils import rename_image_to_correct_format
 
 def main(process_image=True, create_video=True):
     images_folder = 'test_output_coloring'
@@ -26,4 +26,4 @@ def main(process_image=True, create_video=True):
         create_video_from_images(image_dir=save_path, output_video_path=save_path, name_format=name_format, use_padding=True)
 
 if __name__ == "__main__":
-    main(process_image=True, create_video=False)
+    main(process_image=True, create_video=True)

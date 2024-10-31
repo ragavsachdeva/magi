@@ -1,8 +1,8 @@
 import json
 import math
 import os
-import shutil
 from PIL import Image, ImageDraw
+from utils.utils import sort_files
 
 def get_digit_number_for_name_format(directory_path, buffer_number: int = 2):
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.webp', '.heif', '.ico')
@@ -27,10 +27,6 @@ def read_coordinates(json_file_path: str):
 
 def process_full_page(images_dir: str, json_file_path: str, save_path: str = "./panel_images", name_format: str = "page_{:03}_panel_{:03}_bubble_{:03}{}"):
     os.makedirs(save_path, exist_ok=True)
-
-    # Load the JSON data
-    with open(json_file_path, 'r') as f:
-        data = json.load(f)
 
     # Extract the text coordinates
     text_coords, _ = read_coordinates(json_file_path)
@@ -168,7 +164,6 @@ def process_all_images_and_jsons(images_folder: str, json_folder: str, save_path
     image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff'}
     if nuke:
         try:
-
             for filename in os.listdir(save_path):
                 # Check if the file has an image extension
                 if os.path.splitext(filename)[1].lower() in image_extensions:
@@ -178,9 +173,14 @@ def process_all_images_and_jsons(images_folder: str, json_folder: str, save_path
         except FileNotFoundError as e:
             print(f"Error: {e}")
 
+    # Sort files using the existing sort_files function
+    sorted_image_files = sort_files(images_folder)
+    sorted_json_files = sort_files(json_folder)
+    
     # Get all image and json file names
-    image_files = [f for f in os.listdir(images_folder) if os.path.splitext(f)[1].lower() in image_extensions]
-    json_files = [f for f in os.listdir(json_folder) if f.lower().endswith('.json')]
+    image_files = [f for f in sorted_image_files if os.path.splitext(f)[1].lower() in image_extensions]
+    json_files = [f for f in sorted_json_files if f.lower().endswith('.json')]
+    
     if len(image_files) != len(json_files):
         print(f"Number of images and json files do not match! Length of images: {len(image_files)}, Length of jsons: {len(json_files)}")
     else:
