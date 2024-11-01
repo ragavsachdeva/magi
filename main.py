@@ -26,4 +26,4 @@ def main(process_image=True, create_video=True):
         create_video_from_images(image_dir=save_path, output_video_path=save_path, name_format=name_format, use_padding=True)
 
 if __name__ == "__main__":
-    main(process_image=True, create_video=True)
+    main(process_image=True, create_video=False)
