@@ -93,7 +93,9 @@ def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, d
     final_audio.export(temp_audio_file, format='wav')
 
     # Merge audio with video
-    output_with_audio = os.path.join(os.path.dirname(video_file), f"video_with_audio.mp4")
+    base_name = os.path.splitext(os.path.basename(video_file))[0]  # Get the file name without extension
+    output_with_audio = os.path.join(os.path.dirname(video_file), f"{base_name}_audio.mp4")
+
     command = [
         'ffmpeg',
         '-i', video_file,
@@ -114,7 +116,8 @@ def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, d
 
     if delete_original:
         os.remove(temp_audio_file)
-        print(f"Temporary audio file '{temp_audio_file}' deleted.")
+        os.remove(video_file)
+        print(f"Temporary audio file '{temp_audio_file}' deleted. Original video '{video_file}' deleted.")
 
 if __name__ == "__main__":
     # image_dir = "./data_test/code/test_lab/panel_images_full_chapter"
