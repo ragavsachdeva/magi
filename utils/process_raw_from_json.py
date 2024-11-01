@@ -1,11 +1,7 @@
 import json
 import os
 from PIL import Image, ImageDraw
-from utils.utils import sort_files, get_digit_number_for_name_format
-
-
-def generate_name_format(number_of_digit_for_name: int):
-    return f"page_{{:0{number_of_digit_for_name}}}_panel_{{:0{number_of_digit_for_name}}}_bubble_{{:0{number_of_digit_for_name}}}{{}}"
+from utils.utils import sort_files, get_digit_number_for_name_format, generate_name_format, generate_name_format
 
 def read_coordinates(json_file_path: str):
     """Read essential text coordinates from the given JSON file."""
