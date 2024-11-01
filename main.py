@@ -1,7 +1,7 @@
 import os
 from utils.img2mp4 import create_video_from_images
-from utils.process_raw_from_json import process_all_images_and_jsons, generate_name_format
-from utils.utils import rename_image_to_correct_format, get_digit_number_for_name_format
+from utils.process_raw_from_json import process_all_images_and_jsons
+from utils.utils import rename_image_to_correct_format, get_digit_number_for_name_format, generate_name_format
 
 def main(process_image=True, create_video=True):
     images_folder = 'test_output_coloring'

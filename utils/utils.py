@@ -15,7 +15,8 @@ def get_digit_number_for_name_format(directory_path, buffer_number: int = 2):
     return number_of_digit_for_name
 
 def generate_name_format(number_of_digit_for_name: int):
-    return f"page_{{:0{number_of_digit_for_name}}}_panel_{{:0{number_of_digit_for_name}}}_bubble_{{:0{number_of_digit_for_name}}}{{}}"
+    name_format = f"page_{{:0{number_of_digit_for_name}}}_panel_{{:0{number_of_digit_for_name}}}_bubble_{{:0{number_of_digit_for_name}}}{{}}"
+    return name_format
 
 def rename_image_to_correct_format(images_folder, new_folder, num_digits: int =3):
     if os.path.exists(new_folder):
