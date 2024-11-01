@@ -14,7 +14,7 @@ def duration_calculation(audio_filename: str) -> float:
     duration_in_seconds = len(audio) / 1000
     return duration_in_seconds
 
-def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, default_duration: float = 0.5, compressed: bool = False, delete_original: bool = True):
+def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, default_duration: float = 1.25, delete_original: bool = True):
     video_name_format = convert_to_video_name_format(name_format)
     output_video_name = os.path.join(output_video_path, f'video_Padding_{use_padding}.mp4')
 
