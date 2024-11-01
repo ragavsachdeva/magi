@@ -1,7 +1,18 @@
+import math
 import os
 import re
 import shutil
 
+
+def get_digit_number_for_name_format(directory_path, buffer_number: int = 2):
+    image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.webp', '.heif', '.ico')
+    num_images = len([name for name in os.listdir(directory_path) if name.lower().endswith(image_extensions)])
+     
+    if num_images > 0:
+        number_of_digit_for_name = math.ceil(math.log10(num_images+1)) + buffer_number
+    else: 
+        number_of_digit_for_name = buffer_number
+    return number_of_digit_for_name
 
 def rename_image_to_correct_format(images_folder, new_folder, num_digits: int =3):
     if os.path.exists(new_folder):
