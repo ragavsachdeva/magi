@@ -3,29 +3,27 @@ import cv2
 import os
 import numpy as np
 from glob import glob
-
 import re
+from pydub import AudioSegment
 
 def convert_to_video_name_format(name_format: str) -> str:
-    # Replace anything between { and } with {}
     return re.sub(r'\{[^}]*\}', '{}', name_format)
 
-def create_video_from_images(image_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, duration_per_image: float = 0.5, compressed: bool = False, delete_original: bool = True):
+def duration_calculation(audio_filename: str) -> float:
+    audio = AudioSegment.from_file(audio_filename)
+    duration_in_seconds = len(audio) / 1000
+    return duration_in_seconds
 
+def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, default_duration: float = 0.5, compressed: bool = False, delete_original: bool = True):
     video_name_format = convert_to_video_name_format(name_format)
-
     output_video_name = os.path.join(output_video_path, f'video_Padding_{use_padding}.mp4')
-
-    output_video_compressed = os.path.join(output_video_path, f'video_Padding_{use_padding}_compressed.mp4')
 
     image_files = sorted(glob(os.path.join(image_dir, video_name_format.format('*', '*', '*', '*'))))
 
-    # Check if there are any image files
     if not image_files:
         print("No modified images found.")
         return
 
-    # Find the largest dimensions among the images
     max_height = 0
     max_width = 0
 
@@ -35,97 +33,94 @@ def create_video_from_images(image_dir: str, output_video_path: str, name_format
         max_height = max(max_height, height)
         max_width = max(max_width, width)
 
-    # Create a VideoWriter object for MP4 with the maximum dimensions
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     video_writer = cv2.VideoWriter(output_video_name, fourcc, fps, (max_width, max_height))
 
-    # Loop through the images and write them to the video
     for image_file in image_files:
         img = cv2.imread(image_file)
 
-        # Calculate the total frames for each image based on desired display duration
+        audio_file = os.path.join(audio_dir, os.path.basename(image_file).replace('.png', '.wav').replace('.jpg', '.wav'))
 
-        # duration_per_image = audio_durations[index] if audio_durations and index < len(audio_durations) else 0.5
+        if os.path.exists(audio_file):
+            duration_per_image = duration_calculation(audio_file)
+        else:
+            duration_per_image = default_duration
+
         frames_per_image = int(fps * duration_per_image)
 
-        # Create a black background image with max dimensions if padding is needed
         if use_padding:
             background = np.zeros((max_height, max_width, 3), dtype=np.uint8)
-
-            # Get the dimensions of the current image
             height, width, _ = img.shape
-            
-            # Calculate the position to place the current image on the background
             x_offset = (max_width - width) // 2
             y_offset = (max_height - height) // 2
-            
-            # Place the current image on the background
             background[y_offset:y_offset + height, x_offset:x_offset + width] = img
         else:
-            # For no padding, fit the image to max dimensions
             height, width, _ = img.shape
-            
-            # Calculate the scaling factor to fit the image to the maximum width or height
             scale = min(max_width / width, max_height / height)
             new_width = int(width * scale)
             new_height = int(height * scale)
-
-            # Resize the image
             resized_img = cv2.resize(img, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
-
-            # Create a black background image with max dimensions
             background = np.zeros((max_height, max_width, 3), dtype=np.uint8)
-            
-            # Calculate the position to place the resized image on the background
             x_offset = (max_width - new_width) // 2
             y_offset = (max_height - new_height) // 2
-            
-            # Place the resized image on the background
             background[y_offset:y_offset + new_height, x_offset:x_offset + new_width] = resized_img
 
         for _ in range(frames_per_image):
-            video_writer.write(background)  # Write the (padded) image multiple times for the duration
+            video_writer.write(background)
 
-    # Release the video writer
     video_writer.release()
-
-    if compressed:
-        compress_video(output_video_name, output_video_compressed, delete_original)
-    else:
-        print(f"Video saved as: {output_video_name}")
-
-def compress_video(input_video_path: str, output_video_path: str, delete_original: bool = True):
-
-    # Ensure the input video file exists
-    if not os.path.exists(input_video_path):
-        print(f"Input video file '{input_video_path}' does not exist.")
-        return
+    print(f"Video saved as: {output_video_name}")
     
-    # Prepare the FFmpeg command
+    merge_audio_with_video(output_video_name, audio_dir, image_files, default_duration, delete_original)
+
+def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, default_duration: float, delete_original: bool = True):
+    audio_segments = []
+
+    for image_file in image_files:
+        audio_file = os.path.join(audio_dir, os.path.basename(image_file).replace('.jpg', '.wav'))
+        if os.path.exists(audio_file):
+            audio_segments.append(AudioSegment.from_file(audio_file))
+        else:
+            # Append silence for the default duration if audio file not found
+            silence_segment = AudioSegment.silent(duration=default_duration * 1000)  # Duration in milliseconds
+            audio_segments.append(silence_segment)
+
+    # Concatenate all audio segments
+    final_audio = sum(audio_segments)
+
+    # Save the combined audio to a temporary file
+    temp_audio_file = os.path.join(os.path.dirname(video_file), 'temp_audio.wav')
+    final_audio.export(temp_audio_file, format='wav')
+
+    # Merge audio with video
+    output_with_audio = os.path.join(os.path.dirname(video_file), f"video_with_audio.mp4")
     command = [
         'ffmpeg',
-        '-i', input_video_path,  # Convert crf to string
-        output_video_path, '-y',  # Overwrite output file if it exists
+        '-i', video_file,
+        '-i', temp_audio_file,
+        '-c:v', 'copy',
+        '-c:a', 'aac',
+        '-strict', 'experimental',
+        '-shortest',
+        output_with_audio,
+        '-y'  # Overwrite if it exists
     ]
 
     try:
-        # Run the FFmpeg command
         subprocess.run(command, check=True)
-        print(f"Video compressed successfully and saved as: {output_video_path}")
-        if delete_original:
-            os.remove(input_video_path)
-            print(f"Original video file '{input_video_path}' deleted.")
+        print(f"Audio merged successfully into video saved as: {output_with_audio}")
     except subprocess.CalledProcessError as e:
-        print(f"An error occurred while compressing the video: {e}")
+        print(f"An error occurred while merging audio and video: {e}")
 
+    if delete_original:
+        os.remove(temp_audio_file)
+        print(f"Temporary audio file '{temp_audio_file}' deleted.")
 
 if __name__ == "__main__":
-    # Example usage
     # image_dir = "./data_test/code/test_lab/panel_images_full_chapter"
     # image_dir = "./data_test/code/test_lab/panel_images"
     image_dir = "./data_test/code/test_lab/full_image"
-    name_format = "page_{:03}_panel_{:03}_bubble_{:03}{}"
+    audio_dir = "./data_test/code/test_lab/audio_results"
+    name_format = "page_{:04}_panel_{:04}_bubble_{:04}{}"
 
-    create_video_from_images(image_dir=image_dir, output_video_path=image_dir, name_format=name_format, use_padding=True)
-    # Call the compress_video function
-    
+    create_video_from_images(image_dir=image_dir, audio_dir=audio_dir, output_video_path=image_dir, name_format=name_format, use_padding=True)
