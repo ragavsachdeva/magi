@@ -6,8 +6,9 @@ from utils.utils import rename_image_to_correct_format, get_digit_number_for_nam
 def main(process_image=True, create_video=True):
     images_folder = 'test_output_coloring'
     json_folder = 'magi_functional/data_test/personal_data/Ruri_Dragon/json_results'
-
     save_path = "test_output_final"
+
+    
     number_of_digit_for_name = get_digit_number_for_name_format(images_folder)
     name_format = generate_name_format(number_of_digit_for_name)
 

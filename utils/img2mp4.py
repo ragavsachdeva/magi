@@ -14,7 +14,13 @@ def duration_calculation(audio_filename: str) -> float:
     duration_in_seconds = len(audio) / 1000
     return duration_in_seconds
 
-def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, default_duration: float = 1.25, delete_original: bool = True):
+def get_audio_name(image_file_name: str, name_format: str):
+    numbers_in_name = re.findall(r'\d+', image_file_name)
+    page_number, bubble_number = numbers_in_name[0], numbers_in_name[2]
+    audio_name = name_format.format(page_number, 0, bubble_number, ".wav")
+    return audio_name
+
+def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: str, name_format: str, use_padding: bool, fps: int = 24, default_duration: float = 1, delete_original: bool = True):
     video_name_format = convert_to_video_name_format(name_format)
     output_video_name = os.path.join(output_video_path, f'video_Padding_{use_padding}.mp4')
 
@@ -39,7 +45,9 @@ def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: 
     for image_file in image_files:
         img = cv2.imread(image_file)
 
-        audio_file = os.path.join(audio_dir, os.path.basename(image_file).replace('.png', '.wav').replace('.jpg', '.wav'))
+        image_file_name = os.path.basename(image_file)
+        audio_name = get_audio_name(image_file_name, name_format)
+        audio_file = os.path.join(audio_dir, audio_name)
 
         if os.path.exists(audio_file):
             duration_per_image = duration_calculation(audio_file)
@@ -71,17 +79,22 @@ def create_video_from_images(image_dir: str, audio_dir: str, output_video_path: 
     video_writer.release()
     print(f"Video saved as: {output_video_name}")
     
-    merge_audio_with_video(output_video_name, audio_dir, image_files, default_duration, delete_original)
+    merge_audio_with_video(output_video_name, audio_dir, image_files, name_format, default_duration, delete_original)
 
-def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, default_duration: float, delete_original: bool = True):
+def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, name_format :str, default_duration: float, delete_original: bool = True):
     audio_segments = []
 
-    for image_file in image_files:
-        audio_file = os.path.join(audio_dir, os.path.basename(image_file).replace('.jpg', '.wav'))
+    for image_file_path in image_files:
+        image_file_name = os.path.basename(image_file_path)
+        audio_name = get_audio_name(image_file_name, name_format)
+
+        audio_file = os.path.join(audio_dir, audio_name)
         if os.path.exists(audio_file):
+            # print(f"Existing audio file found: {audio_file}")
             audio_segments.append(AudioSegment.from_file(audio_file))
         else:
             # Append silence for the default duration if audio file not found
+            # print(f"Audio file not found for image: {image_file_name}. Appending silence for {default_duration} seconds.")
             silence_segment = AudioSegment.silent(duration=default_duration * 1000)  # Duration in milliseconds
             audio_segments.append(silence_segment)
 
@@ -120,10 +133,10 @@ def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, d
         print(f"Temporary audio file '{temp_audio_file}' deleted. Original video '{video_file}' deleted.")
 
 if __name__ == "__main__":
-    # image_dir = "./data_test/code/test_lab/panel_images_full_chapter"
-    # image_dir = "./data_test/code/test_lab/panel_images"
-    image_dir = "./data_test/code/test_lab/full_image"
-    audio_dir = "./data_test/code/test_lab/audio_results"
+    # image_dir = "magi_functional/data_test/code/test_lab/panel_images_full_chapter"
+    image_dir = "magi_functional/data_test/code/test_lab/panel_images"
+    # image_dir = "magi_functional/data_test/code/test_lab/full_image"
+    audio_dir = "magi_functional/data_test/code/test_lab/audio_results"
     name_format = "page_{:04}_panel_{:04}_bubble_{:04}{}"
 
     create_video_from_images(image_dir=image_dir, audio_dir=audio_dir, output_video_path=image_dir, name_format=name_format, use_padding=True)
