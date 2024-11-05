@@ -10,16 +10,14 @@ import re
 from utils.utils import create_save_folder, generate_name_format, get_digit_number_for_name_format
 
 # Function to parse the transcript from a text file
-def parse_transcript(transcript_path, line_end: int = None):
+def parse_transcript(transcript_path):
     pages = []
     current_page = None
 
     with open(transcript_path, 'r') as file:
         content = file.readlines()
-        
-    lines_to_process = content[:line_end] if line_end is not None else content
     
-    for line in lines_to_process:
+    for line in content:
         if line.startswith("<page>"):
             # Start a new page
             if current_page is not None:
@@ -133,7 +131,7 @@ def parse_args():
     parser.add_argument("-t", "--transcript", default="output/transcript", required=True, type=str, help="Path to the transcript text file.")
     parser.add_argument("-o", "--output", required=True, type=str, help="Directory to save the generated audio files.")
     
-    parser.add_argument("-m", "--male_characters", default=['teacher'], nargs='+', type=str, help="List of male character names.")
+    parser.add_argument("-m", "--male_characters", nargs='+', type=str, help="List of male character names.")
 
     return parser.parse_args()
 
@@ -151,7 +149,7 @@ if __name__ == "__main__":
     name_format = generate_name_format(number_of_digit_for_name)
 
     # Parse the transcript file
-    pages = parse_transcript(args.transcript, line_end=args.line_end)
+    pages = parse_transcript(args.transcript)
     characters = {line[0] for page in pages for line in page["lines"]}
 
     # Select voice files for characters

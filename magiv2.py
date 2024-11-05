@@ -57,13 +57,13 @@ def read_image(path_to_image):
     return image
 
 
-def process_manga_and_characters(image_path, character_folder_path, model, json_output_dir, transcript_output_dir):
+def process_manga_and_characters(image_path, formated_image_path, character_folder_path, model, json_output_dir, transcript_output_dir):
     # Define your folders
     
     number_of_digit_for_name = get_digit_number_for_name_format(image_path)
 
-    # formated_image_path = os.path.join(image_path, 'renamed')
-    formated_images_folder = rename_image_to_correct_format(image_path, "output/renamed", num_digits=number_of_digit_for_name)
+    #  = os.path.join(image_path, 'renamed')
+    formated_images_folder = rename_image_to_correct_format(image_path, formated_image_path, num_digits=number_of_digit_for_name)
 
     image = Path(formated_images_folder)
     character = Path(character_folder_path)
@@ -119,6 +119,7 @@ def process_manga_and_characters(image_path, character_folder_path, model, json_
 def parse_args():
     parser = argparse.ArgumentParser(description="Process manga and character images and generate results.")
     parser.add_argument("-i", "--image", default="input/raw", type=str, help="Path to the folder containing manga images (raw manga).")
+    parser.add_argument("-ri", "--rename_image", default="output/renamed", type=str, help="Path to the folder containing manga images (raw manga).")
     parser.add_argument("-c", "--character", default="input/character",type=str, help="Path to the folder containing character images.")
     parser.add_argument("-j", "--json", default="output/json", type=str, help="Directory where the JSON results will be saved.")
     parser.add_argument("-t", "--transcript", default="output/transcript", type=str, help="Directory where the transcript text file will be saved.")
@@ -133,4 +134,4 @@ if __name__ == "__main__":
     print(f"Running on {device}")
     magiv2_model = AutoModel.from_pretrained("ragavsachdeva/magiv2", trust_remote_code=True).to(device).eval()
 
-    process_manga_and_characters(args.image, args.character, magiv2_model, args.json, args.transcript)
+    process_manga_and_characters(args.image, args.rename_image, args.character, magiv2_model, args.json, args.transcript)
