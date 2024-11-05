@@ -62,8 +62,8 @@ def process_manga_and_characters(image_path, character_folder_path, model, json_
     
     number_of_digit_for_name = get_digit_number_for_name_format(image_path)
 
-    formated_image_path = os.path.join(image_path, 'renamed')
-    formated_images_folder = rename_image_to_correct_format(image_path, formated_image_path, num_digits=number_of_digit_for_name)
+    # formated_image_path = os.path.join(image_path, 'renamed')
+    formated_images_folder = rename_image_to_correct_format(image_path, "output/renamed", num_digits=number_of_digit_for_name)
 
     image = Path(formated_images_folder)
     character = Path(character_folder_path)
