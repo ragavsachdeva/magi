@@ -114,8 +114,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Process manga and character images and generate results.")
     parser.add_argument("-i", "--image", default="input/raw", type=str, help="Path to the folder containing manga images (raw manga).")
     parser.add_argument("-c", "--character", default="input/character",type=str, help="Path to the folder containing character images.")
-    parser.add_argument("-j", "--json", default="input/json", type=str, help="Directory where the JSON results will be saved.")
-    parser.add_argument("-t", "--transcript", default="input/transcript", type=str, help="Directory where the transcript text file will be saved.")
+    parser.add_argument("-j", "--json", default="output/json", type=str, help="Directory where the JSON results will be saved.")
+    parser.add_argument("-t", "--transcript", default="output/transcript", type=str, help="Directory where the transcript text file will be saved.")
     return parser.parse_args()
 
 

@@ -127,8 +127,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Generate speech from a transcript using pre-recorded voice files.")
     parser.add_argument("-i", "--images_folder", default="input/raw", required=True, type=str, help="Directory containing manga images.")
     parser.add_argument("-v", "--voice_bank", required=True, type=str, help="Directory containing voice files.")
-    parser.add_argument("-t", "--transcript", default="input/transcript", required=True, type=str, help="Path to the transcript text file.")
+    parser.add_argument("-t", "--transcript", default="output/transcript", required=True, type=str, help="Path to the transcript text file.")
     parser.add_argument("-o", "--output", required=True, type=str, help="Directory to save the generated audio files.")
+    
     parser.add_argument("-m", "--male_characters", nargs='+', default=['teacher'], type=str, help="List of male character names.")
 
     return parser.parse_args()
