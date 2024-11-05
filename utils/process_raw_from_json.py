@@ -2,7 +2,7 @@ import json
 import os
 from PIL import Image, ImageDraw
 
-from .utils import sort_files, get_digit_number_for_name_format, generate_name_format, generate_name_format
+from .utils import sort_files, get_digit_number_for_name_format, generate_name_format, generate_name_format # remove the dot if run this file from magi_functional for this to work
 
 def read_coordinates(json_file_path: str):
     """Read essential text coordinates from the given JSON file."""
