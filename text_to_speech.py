@@ -112,6 +112,8 @@ def voice_character(character, text, page_number, bubble_number, selected_files,
 def text2speech(pages, selected_files, save_directory):
     output_files = []
 
+    create_save_folder(save_directory, exist_ok=True)
+
     for page in pages:
         page_number = page["page"]
         for bubble_number, (character, dialogue) in enumerate(page["lines"]):
@@ -120,6 +122,7 @@ def text2speech(pages, selected_files, save_directory):
                 output_files.append(output)
             except ValueError as e:
                 print(e)
+    print(f"Audio files have been saved to {save_directory}")
 
     return output_files
 
@@ -130,7 +133,7 @@ def parse_args():
     parser.add_argument("-t", "--transcript", default="output/transcript", required=True, type=str, help="Path to the transcript text file.")
     parser.add_argument("-o", "--output", required=True, type=str, help="Directory to save the generated audio files.")
     
-    parser.add_argument("-m", "--male_characters", nargs='+', default=['teacher'], type=str, help="List of male character names.")
+    parser.add_argument("-m", "--male_characters", default=['teacher'], nargs='+', type=str, help="List of male character names.")
 
     return parser.parse_args()
 
@@ -147,10 +150,6 @@ if __name__ == "__main__":
     number_of_digit_for_name = get_digit_number_for_name_format(args.images_folder)
     name_format = generate_name_format(number_of_digit_for_name)
 
-    # Define output directory and clean it if exists
-    save_directory = args.output
-    create_save_folder(save_directory, exist_ok=True)
-
     # Parse the transcript file
     pages = parse_transcript(args.transcript, line_end=args.line_end)
     characters = {line[0] for page in pages for line in page["lines"]}
@@ -158,7 +157,6 @@ if __name__ == "__main__":
     # Select voice files for characters
     selected_files = select_voice_files_for_characters(characters, args.male_characters, args.voice_bank)
 
-    # Process the transcript and generate audio files
-    output_files = text2speech(pages, selected_files, save_directory)
+    output_files = text2speech(pages, selected_files, args.output)
 
-    print(f"Audio files have been saved to {save_directory}")
+    
