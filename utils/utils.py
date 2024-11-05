@@ -3,6 +3,10 @@ import os
 import re
 import shutil
 
+def create_save_folder(folder_path):
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+    os.makedirs(folder_path, exist_ok=True)
 
 def get_digit_number_for_name_format(directory_path, buffer_number: int = 2):
     image_extensions = ('.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.webp', '.heif', '.ico')

@@ -12,11 +12,8 @@ from PIL import Image
 import numpy as np
 from transformers import AutoModel
 import torch
+from utils.utils import create_save_folder
 
-def create_save_folder(folder_path):
-    if os.path.exists(folder_path):
-        shutil.rmtree(folder_path)
-    os.makedirs(folder_path, exist_ok=True)
 
 def create_chapter_pages_and_character_bank(image, character):
     # Create lists for chapter pages and character bank
@@ -117,8 +114,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Process manga and character images and generate results.")
     parser.add_argument("-i", "--image", default="input/raw", type=str, help="Path to the folder containing manga images (raw manga).")
     parser.add_argument("-c", "--character", default="input/character",type=str, help="Path to the folder containing character images.")
-    parser.add_argument("-j", "--json", default="json", type=str, help="Directory where the JSON results will be saved.")
-    parser.add_argument("-t", "--transcript", default="transcript", type=str, help="Directory where the transcript text file will be saved.")
+    parser.add_argument("-j", "--json", default="input/json", type=str, help="Directory where the JSON results will be saved.")
+    parser.add_argument("-t", "--transcript", default="input/transcript", type=str, help="Directory where the transcript text file will be saved.")
     return parser.parse_args()
 
 

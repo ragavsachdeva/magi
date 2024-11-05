@@ -88,6 +88,7 @@ psutil==6.0.0
 PuLP==2.9.0
 pure_eval==0.2.3
 pyarrow==17.0.0
+pydub==0.25.1
 Pygments==2.18.0
 PyJWT==2.9.0
 pynvml==11.5.3

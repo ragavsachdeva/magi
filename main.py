@@ -12,6 +12,7 @@ import argparse
 import shutil
 from utils.img2mp4 import create_video_from_images
 from utils.process_raw_from_json import process_all_images_and_jsons
+
 from utils.utils import rename_image_to_correct_format, get_digit_number_for_name_format, generate_name_format
 
 def main(images_folder, json_folder, save_path, audio_dir, process_image=True, process_video=True):
