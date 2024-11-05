@@ -9,6 +9,7 @@
     
 import os
 import argparse
+import shutil
 from utils.img2mp4 import create_video_from_images
 from utils.process_raw_from_json import process_all_images_and_jsons
 from utils.utils import rename_image_to_correct_format, get_digit_number_for_name_format, generate_name_format
@@ -72,12 +73,15 @@ def parse_args():
     args = parser.parse_args()
     return args
 
+def create_save_folder(folder_path):
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+    os.makedirs(folder_path, exist_ok=True)
+    
 if __name__ == "__main__":
     args = parse_args()
 
-    # Set default behavior if no flags are set
-    process_image = args.process_image if args.process_image else True
-    process_video = args.process_video if args.process_video else True
+    create_save_folder(args.save)
 
     # Call the main function with parsed arguments
     main(
@@ -85,8 +89,8 @@ if __name__ == "__main__":
         json_folder=args.json,
         save_path=args.save,
         audio_dir=args.audio,
-        process_image=process_image,
-        process_video=process_video
+        process_image=args.process_image,
+        process_video=args.process_video
     )
 
 

@@ -1,6 +1,7 @@
 import os
 import re
 import json
+import shutil
 import numpy as np
 from pathlib import Path
 from PIL import Image
@@ -12,6 +13,10 @@ import numpy as np
 from transformers import AutoModel
 import torch
 
+def create_save_folder(folder_path):
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+    os.makedirs(folder_path, exist_ok=True)
 
 def create_chapter_pages_and_character_bank(image, character):
     # Create lists for chapter pages and character bank
@@ -73,15 +78,15 @@ def process_manga_and_characters(image_path, character_folder_path, model, json_
         per_page_results = model.do_chapter_wide_prediction(chapter_pages, character_bank, use_tqdm=True, do_ocr=True)
 
     # Prepare directories for saving results
-    os.makedirs(json_output_dir, exist_ok=True)  # Create the directory if it doesn't exist  
-    os.makedirs(transcript_output_dir, exist_ok=True)  # Create the directory if it doesn't exist
+    create_save_folder(json_output_dir)  
+    create_save_folder(transcript_output_dir)  
 
     # Process and save the results
     transcript = []
     for i, (image, page_result) in enumerate(zip(chapter_pages, per_page_results)):
         image_name_ext = os.path.basename(chapter_pages_original[i]) 
         # Split the image name and its extension
-        image_name, image_extension = os.path.splitext(image_name_ext)
+        image_name, _ = os.path.splitext(image_name_ext)
         
         # Save page_result to JSON
         json_file_path = os.path.join(json_output_dir, f"{image_name}.json")
