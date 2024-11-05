@@ -62,7 +62,7 @@ def main(images_folder, json_folder, save_path, audio_dir, process_image=True, p
         )
 def parse_args():
     parser = argparse.ArgumentParser(description="Process manga images and generate a video with speech bubbles.")
-    parser.add_argument('-i', '--image', type=str, default="output/colorized", help="Path to the folder containing raw manga images.")
+    parser.add_argument('-i', '--image', type=str, default="output/colorized/rename", help="Path to the folder containing raw manga images.")
     parser.add_argument('-j', '--json', type=str, default="output/json", help="Path to the folder containing JSON files with dialogue data.")
     parser.add_argument('-a', '--audio', type=str, default="output/audio", help="Path to the folder containing audio files.")
 

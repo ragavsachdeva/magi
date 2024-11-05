@@ -94,7 +94,7 @@ def merge_audio_with_video(video_file: str, audio_dir: str, image_files: list, n
             audio_segments.append(AudioSegment.from_file(audio_file))
         else:
             # Append silence for the default duration if audio file not found
-            # print(f"Audio file not found for image: {image_file_name}. Appending silence for {default_duration} seconds.")
+            print(f"Audio file not found for image: {image_file_name}. Appending silence for {default_duration} seconds.")
             silence_segment = AudioSegment.silent(duration=default_duration * 1000)  # Duration in milliseconds
             audio_segments.append(silence_segment)
 

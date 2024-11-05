@@ -22,7 +22,7 @@ def parse_transcript(transcript_path):
             # Start a new page
             if current_page is not None:
                 pages.append(current_page)
-            current_page = {"page": line[6:8], "lines": []}  # Extract page number 
+            current_page = {"page": re.search(r'<page>(\d+)<endpage>', line).group(1), "lines": []}   
         elif line.startswith("<name>") and current_page is not None:
             # Extract character name and dialogue
             match = re.match(r"<name>([^<]+)<endname>:\s*(.+)", line)
