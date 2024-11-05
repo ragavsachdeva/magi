@@ -110,7 +110,7 @@ def voice_character(character, text, page_number, bubble_number, selected_files,
 def text2speech(pages, selected_files, save_directory):
     output_files = []
 
-    create_save_folder(save_directory, exist_ok=True)
+    create_save_folder(save_directory)
 
     for page in pages:
         page_number = page["page"]
