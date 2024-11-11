@@ -63,16 +63,24 @@ def parse_args():
     parser.add_argument('-j', '--json', type=str, default="output/json", help="Path to the folder containing JSON files with dialogue data.")
     parser.add_argument('-a', '--audio', type=str, default="output/audio", help="Path to the folder containing audio files.")
 
-    parser.add_argument('-panel', '--panel_view', type=bool, default=True, help="Flag to create a video from processed images.")
-    parser.add_argument('-nuke', '--nuke_option', type=bool, default=True, help="Flag to create a video from processed images.")
-
+    # Use type=str to accept True or False as strings
+    parser.add_argument('-panel', '--panel_view', type=str, choices=['True', 'False'], default='True', help="Flag to enable panel view. Use 'True' or 'False'.")
+    parser.add_argument('-nuke', '--nuke_option', type=str, choices=['True', 'False'], default='True', help="Flag to enable nuking. Use 'True' or 'False'.")
 
     parser.add_argument('-s', '--save', type=str, default="output/output_final", help="Path to save the processed images and output video.")
 
-    parser.add_argument('-pi', '--process_image', type=bool, default=True,help="Flag to process images and generate speech bubbles.")
-    parser.add_argument('-pv', '--process_video', type=bool, default=True, help="Flag to create a video from processed images.")
+    # Flags for processing image and video
+    parser.add_argument('-pi', '--process_image', type=str, choices=['True', 'False'], default='True', help="Flag to process images and generate speech bubbles.")
+    parser.add_argument('-pv', '--process_video', type=str, choices=['True', 'False'], default='True', help="Flag to create a video from processed images.")
 
     args = parser.parse_args()
+
+    # Convert 'True'/'False' strings to actual booleans
+    args.panel_view = args.panel_view == 'True'
+    args.nuke_option = args.nuke_option == 'True'
+    args.process_image = args.process_image == 'True'
+    args.process_video = args.process_video == 'True'
+
     return args
 
 def create_save_folder(folder_path):

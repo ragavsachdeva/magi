@@ -96,7 +96,7 @@ def select_voice_files_for_characters(characters, male_characters, voice_bank):
 # Function to convert text to speech for a character
 def voice_character(character, text, page_number, bubble_number, selected_files, save_directory, name_format="page_{:03d}_panel_{:03d}_bubble_{:03d}{}"):
     speaker_wav = selected_files.get(character)
-
+    print(f"Processing character '{character}' with text: {text}")
     if speaker_wav:
         audio_output_filename = name_format.format(int(page_number), 0, bubble_number+1, ".wav")
         output_filename = os.path.join(save_directory, audio_output_filename)
@@ -156,5 +156,3 @@ if __name__ == "__main__":
     selected_files = select_voice_files_for_characters(characters, args.male_characters, args.voice_bank)
 
     output_files = text2speech(pages, selected_files, args.output)
-
-    
