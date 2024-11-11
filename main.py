@@ -15,7 +15,7 @@ from utils.process_raw_from_json import process_all_images_and_jsons
 
 from utils.utils import rename_image_to_correct_format, get_digit_number_for_name_format, generate_name_format
 
-def main(images_folder, json_folder, save_path, audio_dir, process_image=True, process_video=True):
+def main(images_folder, json_folder, save_path, audio_dir, process_image=True, process_video=True, panel_view_option = True, nuke_option = True):
     """
     Main function to process manga images and generate video with speech bubbles.
 
@@ -35,10 +35,7 @@ def main(images_folder, json_folder, save_path, audio_dir, process_image=True, p
 
     formated_json_path = os.path.join(json_folder, 'renamed')
     formated_json_folder = rename_image_to_correct_format(json_folder, formated_json_path, num_digits=number_of_digit_for_name)
-
-    # Options for processing
-    nuke_option = True
-    panel_view_option = True
+    
 
     # Process images and generate speech bubbles if flag is set
     if process_image:
@@ -66,6 +63,10 @@ def parse_args():
     parser.add_argument('-j', '--json', type=str, default="output/json", help="Path to the folder containing JSON files with dialogue data.")
     parser.add_argument('-a', '--audio', type=str, default="output/audio", help="Path to the folder containing audio files.")
 
+    parser.add_argument('-panel', '--panel_view', type=bool, default=True, help="Flag to create a video from processed images.")
+    parser.add_argument('-nuke', '--nuke_option', type=bool, default=True, help="Flag to create a video from processed images.")
+
+
     parser.add_argument('-s', '--save', type=str, default="output/output_final", help="Path to save the processed images and output video.")
 
     parser.add_argument('-pi', '--process_image', type=bool, default=True,help="Flag to process images and generate speech bubbles.")
@@ -91,8 +92,10 @@ if __name__ == "__main__":
         save_path=args.save,
         audio_dir=args.audio,
         process_image=args.process_image,
-        process_video=args.process_video
+        process_video=args.process_video,
+        panel_view_option=args.panel_view,
+        nuke_option=args.nuke_option
     )
 
 
-# python main.py -i test_output_coloring -j magi_functional/data_test/personal_data/Ruri_Dragon/json_results -s test_output_final
+# python main.py -i test_output_coloring -j magi_functional/data_test/personal_data/Ruri_Dragon/json_results -s test_output_final -panel True  
