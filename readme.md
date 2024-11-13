@@ -60,14 +60,17 @@ Image Demo
 Video Demo
 ----------
 
-## Full-Page View Demo
+## Full-Page Demo
 
-[https://github.com/user-attachments/assets/db32e3c1-f95d-49e2-a7da-c626d25d68af](https://github.com/user-attachments/assets/95eeae7f-2c71-4ba4-9d03-95d56433fe14)
+https://github.com/user-attachments/assets/95eeae7f-2c71-4ba4-9d03-95d56433fe14
 
 
-## Panel View Demo
+## Panel-View Demo
 
-https://github.com/user-attachments/assets/0aabe36d-1422-4318-a076-b0d614e9da7c
+
+https://github.com/user-attachments/assets/ac77e4c3-aa55-4d54-b79e-bb3187d42065
+
+
 
 
 Contribution
