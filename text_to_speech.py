@@ -46,27 +46,12 @@ def get_voice_files(directory):
                 all_files.append(os.path.join(root, file))
     return all_files
 
-# Function to filter voice files into male and female categories
-def filter_voice_files(files):
-    male_files = []
-    female_files = []
-    
-    for file in files:
-        # Extract the actor number from the filename
-        match = re.search(r"(\d{2})\.wav$", file)
-        if match:
-            actor_number = int(match.group(1))
-            if actor_number % 2 == 0:  # Even numbers are female
-                female_files.append(file)
-            else:  # Odd numbers are male
-                male_files.append(file)
-                
-    return male_files, female_files
 
 # Function to randomly select voice files for characters
 def select_voice_files_for_characters(characters, male_characters, voice_bank):
     all_files = get_voice_files(voice_bank)
-    male_files, female_files = filter_voice_files(all_files)
+    male_files = get_voice_files(os.path.join(voice_bank, 'male'))
+    female_files = get_voice_files(os.path.join(voice_bank, 'female'))
 
     selected_files = {}
     used_files = set()  # To keep track of used voice files
