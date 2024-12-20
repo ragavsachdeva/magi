@@ -10,13 +10,12 @@
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagiv2%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magiv2)
 [![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Demo-blue)](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo)
 
-TODOs: 
-- [x] Upload Magiv2 model,
-- [x] open-source PopManga-X,
-- [ ] open-source PopCharacters dataset (ETA: end of Sep, or early Oct),
-- [ ] release evaluation scripts.
+# Table of Contents
+1. [Magiv1](#magiv1)
+2. [Magiv2](#magiv2)
+3. [Datasets](#datasets)
 
-## Magiv1
+# Magiv1
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magi).
 - Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/the-manga-whisperer/) (no GPU, so slow).
 - Basic model usage is provided below. Inspect [this file](https://huggingface.co/ragavsachdeva/magi/blob/main/modelling_magi.py) for more info.
@@ -55,7 +54,7 @@ for i in range(len(images)):
     model.generate_transcript_for_single_image(results[i], ocr_results[i], filename=f"transcript_{i}.txt")
 ```
 
-## Magiv2
+# Magiv2
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magiv2).
 - Try it out for yourself using this 🤗 [HuggingFace Spaces Demo](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo) (with GPU, thanks HF Team!).
 - Basic model usage is provided below. Inspect [this file](https://huggingface.co/ragavsachdeva/magiv2/blob/main/modelling_magiv2.py) for more info.
@@ -111,15 +110,16 @@ with open(f"transcript.txt", "w") as fh:
 Disclaimer: In adherence to copyright regulations, we are unable to _publicly_ distribute the manga images that we've collected. The test images, however, are available freely, publicly and officially on [Manga Plus by Shueisha](https://mangaplus.shueisha.co.jp/).
 
 [![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20%20PopMangaX%20(Test)-Dataset-blue)](https://huggingface.co/datasets/ragavsachdeva/popmanga_test)
+[![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20%20PopCharacters-Dataset-blue)](https://huggingface.co/datasets/ragavsachdeva/popcharacters)
 
-## Other notes
+### Other notes
 - Request to download Manga109 dataset [here](http://www.manga109.org/en/download.html).
 - Download a large scale dataset from Mangadex using [this tool](https://github.com/EMACC99/mangadex).
 - The Manga109 test splits are available here: [detection](https://github.com/barisbatuhan/DASS_Det_Inference/blob/main/dass_det/data/datasets/manga109.py#L109), [character clustering](https://github.com/kktsubota/manga-face-clustering/blob/master/dataset/test_titles.txt). Be careful that some background characters have the same label even though they are not the same character, [see](https://github.com/kktsubota/manga-face-clustering/blob/master/script/get_other_ids.py).
 
 
 
-### License and Citation
+# License and Citation
 The provided models and datasets are available for academic research purposes only.
 
 ```
