@@ -48,15 +48,15 @@ def get_voice_files(directory):
 
 
 # Function to randomly select voice files for characters
-def select_voice_files_for_characters(characters, male_characters, voice_bank):
+def select_voice_files_for_characters(characters, voice_bank):
     all_files = get_voice_files(voice_bank)
 
     selected_files = {}
     used_files = set()  # To keep track of used voice files
 
     for character in characters:
-        gender = character.rsplit('_', 1)[1]
-        if gender == "male" | gender == "female" :
+        gender = character.rsplit('_', 1)[1] if '_' in character else "unknown"
+        if gender == "male" or gender == "female" :
             # Select a random male voice that hasn't been used
             gender_files = get_voice_files(os.path.join(voice_bank, gender))
             available_files = list(set(gender_files) - used_files)
@@ -136,9 +136,15 @@ if __name__ == "__main__":
     characters = {line[0] for page in pages for line in page["lines"]}
 
     # Select voice files for characters
-    selected_files = select_voice_files_for_characters(characters, args.male_characters, args.voice_bank)
+    selected_files = select_voice_files_for_characters(characters, args.voice_bank)
+    os.makedirs(args.output, exist_ok=True)
 
     output_files = text2speech(pages, selected_files, args.output)
 
 # HOW TO USE
-# !python /kaggle/working/manga_read_along/magi_functional/text_to_speech.py -i {raw_image_rename_path} -v {voice_bank_path} -t {transcript_file} -o {audio_path}
+# raw_image_rename_path = "input/raw"
+# transcript_path = "input/transcript"
+# voice_bank_path = "input/voice_bank"
+# output_path = "output"
+# transcript_file = f"{transcript_path}/transcript.txt"
+# !python /kaggle/working/magi_functional/text_to_speech.py -i {raw_image_rename_path} -v {voice_bank_path} -t {transcript_file} -o {output_path}
