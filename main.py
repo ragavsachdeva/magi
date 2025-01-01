@@ -105,5 +105,5 @@ if __name__ == "__main__":
         nuke_option=args.nuke_option
     )
 
-
+# HOW TO USE
 # python main.py -i test_output_coloring -j magi_functional/data_test/personal_data/Ruri_Dragon/json_results -s test_output_final -panel True  

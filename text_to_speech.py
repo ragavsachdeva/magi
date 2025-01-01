@@ -50,31 +50,31 @@ def get_voice_files(directory):
 # Function to randomly select voice files for characters
 def select_voice_files_for_characters(characters, male_characters, voice_bank):
     all_files = get_voice_files(voice_bank)
-    male_files = get_voice_files(os.path.join(voice_bank, 'male'))
-    female_files = get_voice_files(os.path.join(voice_bank, 'female'))
 
     selected_files = {}
     used_files = set()  # To keep track of used voice files
 
     for character in characters:
-        if character in male_characters:
+        gender = character.rsplit('_', 1)[1]
+        if gender == "male" | gender == "female" :
             # Select a random male voice that hasn't been used
-            available_male_files = list(set(male_files) - used_files)
-            if available_male_files:
-                selected_files[character] = random.choice(available_male_files)
-                used_files.add(selected_files[character])
-        else:
-            # Select a random female voice that hasn't been used, if available
-            available_female_files = list(set(female_files) - used_files)
-            if available_female_files:
-                selected_files[character] = random.choice(available_female_files)
+            gender_files = get_voice_files(os.path.join(voice_bank, gender))
+            available_files = list(set(gender_files) - used_files)
+            if available_files:
+                selected_files[character] = random.choice(available_files)
                 used_files.add(selected_files[character])
             else:
-                # Select any remaining file for other characters, ensuring it's not already used
-                available_files = list(set(all_files) - used_files)
-                if available_files:
-                    selected_files[character] = random.choice(available_files)
-                    used_files.add(selected_files[character])
+                # If rant out of voice, just reuse old one
+                selected_files[character] = random.choice(gender_files)
+        else:
+            # Select any remaining file for other characters, ensuring it's not already used
+            available_files = list(set(all_files) - used_files)
+            if available_files:
+                selected_files[character] = random.choice(available_files)
+                used_files.add(selected_files[character])
+            else:
+                # If ran out of voice, just reuse old one
+                selected_files[character] = random.choice(all_files)
     
     return selected_files
 
@@ -83,9 +83,9 @@ def voice_character(character, text, page_number, bubble_number, selected_files,
     speaker_wav = selected_files.get(character)
     print(f"Processing character '{character}' with text: {text}")
     if speaker_wav:
-        audio_output_filename = name_format.format(int(page_number), 0, bubble_number+1, ".wav")
+        audio_output_filename = name_format.format(int(page_number), 0, bubble_number + 1, ".wav")
         output_filename = os.path.join(save_directory, audio_output_filename)
-        output = tts.tts_to_file(text=text, speaker_wav=speaker_wav, language="en")
+        tts.tts_to_file(text=text, speaker_wav=speaker_wav, language="en")
         os.rename("output.wav", output_filename)  # Rename the default output file
         return output_filename
     else:
@@ -115,8 +115,6 @@ def parse_args():
     parser.add_argument("-v", "--voice_bank", default="input/voice_bank", type=str, help="Directory containing voice files.")
     parser.add_argument("-t", "--transcript", default="output/transcript", required=True, type=str, help="Path to the transcript text file.")
     parser.add_argument("-o", "--output", required=True, type=str, help="Directory to save the generated audio files.")
-    
-    parser.add_argument("-m", "--male_characters", nargs='+', type=str, help="List of male character names.")
 
     return parser.parse_args()
 
@@ -141,3 +139,6 @@ if __name__ == "__main__":
     selected_files = select_voice_files_for_characters(characters, args.male_characters, args.voice_bank)
 
     output_files = text2speech(pages, selected_files, args.output)
+
+# HOW TO USE
+# !python /kaggle/working/manga_read_along/magi_functional/text_to_speech.py -i {raw_image_rename_path} -v {voice_bank_path} -t {transcript_file} -o {audio_path}

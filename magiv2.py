@@ -43,7 +43,7 @@ def create_chapter_pages_and_character_bank(image, character):
     for char_image_file in os.listdir(character):
         if char_image_file.endswith(('.png', '.jpg', '.jpeg')):  # Check for image file extensions
             # Split the filename to extract character name
-            char_name = char_image_file.split('_')[0]  # Get the part before the underscore
+            char_name = char_image_file.rsplit('_', 1)[0]  # Get the part before the underscore
             character_bank["images"].append(os.path.join(character, char_image_file))
             character_bank["names"].append(char_name)
 
