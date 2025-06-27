@@ -158,13 +158,23 @@ The provided models and datasets are available for academic research purposes on
 }
 ```
 ```
-@misc{magiv2,
-      author={Ragav Sachdeva and Gyungin Shin and Andrew Zisserman},
-      title={Tails Tell Tales: Chapter-Wide Manga Transcriptions with Character Names}, 
-      year={2024},
-      eprint={2408.00298},
+@InProceedings{Sachdeva_2024_ACCV,
+    author    = {Sachdeva, Ragav and Shin, Gyungin and Zisserman, Andrew},
+    title     = {Tails Tell Tales: Chapter-wide Manga Transcriptions with Character Names},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    month     = {December},
+    year      = {2024},
+    pages     = {2053-2069}
+}
+```
+```
+@misc{sachdeva2025panelsprosegeneratingliterary,
+      title={From Panels to Prose: Generating Literary Narratives from Comics}, 
+      author={Ragav Sachdeva and Andrew Zisserman},
+      year={2025},
+      eprint={2503.23344},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2408.00298}, 
+      url={https://arxiv.org/abs/2503.23344}, 
 }
 ```
