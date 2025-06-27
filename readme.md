@@ -10,10 +10,18 @@
 [![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagiv2%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magiv2)
 [![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Demo-blue)](https://huggingface.co/spaces/ragavsachdeva/Magiv2-Demo)
 
+![Static Badge](https://img.shields.io/badge/v3-grey) 
+[![Static Badge](https://img.shields.io/badge/arXiv-2503.23344-blue)](https://arxiv.org/abs/2503.23344)
+[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fragavsachdeva%2Fmagiv3%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/ragavsachdeva/magiv3)
+
+### TODO
+[ ] Release PopCaptions dataset 
+
 # Table of Contents
 1. [Magiv1](#magiv1)
 2. [Magiv2](#magiv2)
-3. [Datasets](#datasets)
+3. [Magiv3](#magiv3)
+4. [Datasets](#datasets)
 
 # Magiv1
 - The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magi).
@@ -103,6 +111,23 @@ for i, (image, page_result) in enumerate(zip(chapter_pages, per_page_results)):
 with open(f"transcript.txt", "w") as fh:
     for line in transcript:
         fh.write(line + "\n")
+```
+
+# Magiv3
+- The model is available at 🤗 [HuggingFace Model Hub](https://huggingface.co/ragavsachdeva/magiv3).
+- Basic model usage is provided below. Inspect [this file]([https://huggingface.co/ragavsachdeva/magiv3/blob/main/modelling_magiv3.py](https://huggingface.co/ragavsachdeva/magiv3/blob/main/modeling_florence2.py)) for more info.
+
+<img width="1080" alt="Screenshot 2025-06-26 at 22 52 10" src="https://github.com/user-attachments/assets/3281bd6a-7d65-439c-ad33-7e8c775bca39" />
+
+### v3 Usage
+
+```python
+model = AutoModelForCausalLM.from_pretrained("ragavsachdeva/magiv3", torch_dtype=torch.float16, trust_remote_code=True).cuda().eval()
+processor = AutoProcessor.from_pretrained("ragavsachdeva/magiv3", trust_remote_code=True)
+
+model.predict_detections_and_associations(images, processor)
+model.predict_ocr(images, processor)
+model.predict_character_grounding(images, captions, processor)
 ```
 
 # Datasets
